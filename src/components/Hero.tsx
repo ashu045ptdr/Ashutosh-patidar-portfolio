@@ -44,10 +44,10 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="hidden lg:flex justify-end items-center relative">
-          <div className="relative w-80 h-[400px] bg-zinc-900/40 backdrop-blur-3xl border border-white/10 shadow-2xl rounded-[40px] flex flex-col justify-end overflow-hidden group">
+        <div className="flex justify-center lg:justify-end items-center relative mt-12 lg:mt-0">
+          <div className="relative w-64 h-[320px] sm:w-80 sm:h-[400px] bg-zinc-900/40 backdrop-blur-3xl border border-white/10 shadow-2xl rounded-[40px] flex flex-col justify-end overflow-hidden group">
             <div className="absolute inset-0 z-0">
-              <img src="/profile.jpg" alt="Ashutosh Patidar" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-500" />
+              <img src="/profile.jpg" alt="Ashutosh Patidar" className="w-full h-full object-cover opacity-80 transition-all duration-500" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950/90 z-10"></div>
 
@@ -66,9 +66,9 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="absolute top-10 -left-10 bg-zinc-900/80 backdrop-blur-xl border border-white/10 px-6 py-4 rounded-2xl shadow-2xl animate-float">
-            <p className="text-zinc-400 text-xs font-semibold tracking-wider uppercase mb-1">Deliver</p>
-            <p className="text-2xl font-black text-white">2+ Years Exp.</p>
+          <div className="absolute -bottom-6 right-0 sm:bottom-auto sm:right-auto sm:top-10 sm:-left-10 bg-zinc-900/80 backdrop-blur-xl border border-white/10 px-4 py-3 sm:px-6 sm:py-4 rounded-2xl shadow-2xl animate-float z-30">
+            <p className="text-zinc-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase mb-1">Deliver</p>
+            <p className="text-lg sm:text-2xl font-black text-white whitespace-nowrap">2+ Years Exp.</p>
           </div>
         </div>
       </div>
