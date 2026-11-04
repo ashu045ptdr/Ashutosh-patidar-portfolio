@@ -19,9 +19,9 @@ const Skills = () => {
   ];
 
   return (
-    <section className="relative py-24" id="skills">
+    <section className="relative py-16 sm:py-24" id="skills">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 inline-block mb-4">Technical Arsenal</h2>
           <p className="text-zinc-400">Tools and technologies I use to build digital solutions.</p>
         </div>

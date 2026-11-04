@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-zinc-900 to-zinc-950 pt-20 pb-10 border-t border-white/5" id="contact">
+    <footer className="bg-gradient-to-b from-zinc-900 to-zinc-950 pt-16 pb-8 sm:pt-20 sm:pb-10 border-t border-white/5" id="contact">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div className="max-w-md">
@@ -29,9 +29,9 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-colors">
                   <Mail size={18} />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <p className="text-sm text-zinc-400 font-medium">Email Me At</p>
-                  <p className="text-zinc-200 font-semibold group-hover:text-sky-400 transition-colors">ashupatidar1432@gmail.com</p>
+                  <p className="text-zinc-200 font-semibold break-all group-hover:text-sky-400 transition-colors">ashupatidar1432@gmail.com</p>
                 </div>
               </a>
 
@@ -39,7 +39,7 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
                   <Phone size={18} />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <p className="text-sm text-zinc-400 font-medium">Call Me At</p>
                   <p className="text-zinc-200 font-semibold group-hover:text-purple-400 transition-colors">+91 7694977586</p>
                 </div>
@@ -49,7 +49,7 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors">
                   <MapPin size={18} />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <p className="text-sm text-zinc-400 font-medium">Location</p>
                   <p className="text-zinc-200 font-semibold">Vill. Likkhi, Khargone, MP, 451001</p>
                 </div>

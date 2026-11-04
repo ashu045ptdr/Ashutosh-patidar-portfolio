@@ -30,7 +30,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-8">
+        <ul className="hidden lg:flex gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a href={link.href} className="text-sm font-medium text-zinc-400 hover:text-sky-400 transition-colors bg-zinc-800/30 px-4 py-2 rounded-full border border-white/5 hover:bg-zinc-800/80">
@@ -40,13 +40,13 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <a href="mailto:ashupatidar1432@gmail.com" className="hidden md:flex items-center justify-center bg-gradient-to-r from-sky-500 to-purple-500 text-white px-6 py-2.5 rounded-full font-medium shadow-lg hover:scale-105 hover:-translate-y-0.5 transition-all">
+        <a href="mailto:ashupatidar1432@gmail.com" className="hidden lg:flex items-center justify-center bg-gradient-to-r from-sky-500 to-purple-500 text-white px-6 py-2.5 rounded-full font-medium shadow-lg hover:scale-105 hover:-translate-y-0.5 transition-all">
           Let's Talk
         </a>
 
         {/* Mobile Nav Toggle */}
         <button 
-          className="md:hidden text-zinc-50 focus:outline-none"
+          className="lg:hidden text-zinc-50 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -55,7 +55,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
+        <div className="lg:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.name}>

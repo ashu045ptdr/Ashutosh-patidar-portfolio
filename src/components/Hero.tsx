@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[100px] opacity-30 bg-purple-600/30 animate-pulse-slow delay-1000"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
         <div className="flex flex-col items-start space-y-6">
           <div className="flex gap-3">
             <span className="bg-zinc-800/50 border border-white/5 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium text-zinc-300 flex items-center gap-2">
@@ -22,7 +22,7 @@ const Hero = () => {
             </span> */}
           </div>
 
-          <h1 className="text-5xl lg:text-8xl font-black text-zinc-50 leading-[1.1] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black text-zinc-50 leading-[1.1] tracking-tight">
             Hi, I'm <br />
             <span className="bg-gradient-to-r from-white via-sky-400 to-purple-400 bg-clip-text text-transparent bg-[length:300%] animate-gradient">Ashutosh</span>
           </h1>
@@ -44,7 +44,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex justify-center lg:justify-end items-center relative mt-12 lg:mt-0">
+        <div className="flex justify-center lg:justify-end items-center relative mt-8 sm:mt-12 lg:mt-0">
           <div className="relative w-64 h-[320px] sm:w-80 sm:h-[400px] bg-zinc-900/40 backdrop-blur-3xl border border-white/10 shadow-2xl rounded-[40px] flex flex-col justify-end overflow-hidden group">
             <div className="absolute inset-0 z-0">
               <img src="/profile.jpg" alt="Ashutosh Patidar" className="w-full h-full object-cover opacity-80 transition-all duration-500" />

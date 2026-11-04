@@ -2,9 +2,9 @@ import { GraduationCap, Award } from 'lucide-react';
 
 const Education = () => {
   return (
-    <section className="relative py-24 bg-zinc-950" id="education">
+    <section className="relative py-16 sm:py-24 bg-zinc-950" id="education">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-16">
+        <div className="mb-10 sm:mb-16">
           <h2 className="text-4xl lg:text-5xl font-black text-white">Education & Certifications</h2>
         </div>
         
@@ -15,25 +15,25 @@ const Education = () => {
             </h3>
             <div className="space-y-6">
               <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/5 p-6 rounded-2xl border-l-4 border-l-sky-500 hover:-translate-y-1 transition-transform shadow-xl">
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                   <h4 className="text-xl font-bold text-white">Master of Computer Application</h4>
-                  <span className="bg-sky-500/20 text-sky-400 text-xs font-bold px-3 py-1 rounded-full">2023</span>
+                  <span className="self-start shrink-0 bg-sky-500/20 text-sky-400 text-xs font-bold px-3 py-1 rounded-full">2023</span>
                 </div>
                 <p className="text-zinc-400">Maharaja Ranjit Singh Group of Institute, Indore</p>
               </div>
               
               <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/5 p-6 rounded-2xl border-l-4 border-l-sky-500 hover:-translate-y-1 transition-transform shadow-xl">
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                   <h4 className="text-xl font-bold text-white">BSc (Computer Science)</h4>
-                  <span className="bg-sky-500/20 text-sky-400 text-xs font-bold px-3 py-1 rounded-full">2021</span>
+                  <span className="self-start shrink-0 bg-sky-500/20 text-sky-400 text-xs font-bold px-3 py-1 rounded-full">2021</span>
                 </div>
                 <p className="text-zinc-400">ILVA Commerce and Science College, Indore</p>
               </div>
               
               <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/5 p-6 rounded-2xl border-l-4 border-l-sky-500 hover:-translate-y-1 transition-transform shadow-xl">
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                   <h4 className="text-xl font-bold text-white">Higher Secondary Education</h4>
-                  <span className="bg-sky-500/20 text-sky-400 text-xs font-bold px-3 py-1 rounded-full">2018</span>
+                  <span className="self-start shrink-0 bg-sky-500/20 text-sky-400 text-xs font-bold px-3 py-1 rounded-full">2018</span>
                 </div>
                 <p className="text-zinc-400">Excellence School No 1, Khargone</p>
               </div>

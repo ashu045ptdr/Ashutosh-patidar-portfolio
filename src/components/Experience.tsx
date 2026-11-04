@@ -30,7 +30,7 @@ const Experience = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden" id="experience">
+    <section className="relative py-16 sm:py-24 overflow-hidden" id="experience">
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 bg-sky-500/40 animate-pulse-slow"></div>
@@ -59,7 +59,7 @@ const Experience = () => {
                   {/* Left dot for mobile */}
                   <div className="md:hidden absolute left-3 top-4 w-4 h-4 rounded-full bg-sky-500 z-10 shadow-[0_0_10px_rgba(14,165,233,0.8)]"></div>
 
-                  <div className="bg-zinc-800/50 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-blue-500/30 group-hover:border-blue-400/80 transition-all duration-500 relative overflow-hidden">
+                  <div className="bg-zinc-800/50 backdrop-blur-sm p-6 pt-14 md:pt-12 lg:pt-12 rounded-2xl border border-blue-500/30 group-hover:border-blue-400/80 transition-all duration-500 relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4">
                       <span className="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                         {exp.duration}
@@ -67,14 +67,14 @@ const Experience = () => {
                     </div>
 
                     <h3 className="text-2xl font-bold text-white mb-2">{exp.role}</h3>
-                    <h4 className="text-sky-400 font-medium mb-6 flex items-center gap-2">
-                      <Briefcase size={16} /> {exp.company}
+                    <h4 className="text-sky-400 font-medium mb-6 flex items-start gap-2">
+                      <Briefcase size={16} className="shrink-0 mt-1" /> {exp.company}
                     </h4>
 
                     <ul className="space-y-3">
                       {exp.responsibilities.map((resp, idx) => (
                         <li key={idx} className="flex items-start text-zinc-300 text-sm leading-relaxed">
-                          <span className="text-purple-400 mr-2 mt-0.5">•</span>
+                          <span className="text-purple-400 mr-2 mt-0.5 shrink-0">•</span>
                           {resp}
                         </li>
                       ))}

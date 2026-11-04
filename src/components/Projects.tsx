@@ -60,9 +60,9 @@ const Projects = () => {
   ];
 
   return (
-    <section className="relative py-24" id="projects">
+    <section className="relative py-16 sm:py-24" id="projects">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-16">
+        <div className="mb-10 sm:mb-16">
           <h2 className="text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Featured Projects</h2>
         </div>
 
@@ -72,7 +72,7 @@ const Projects = () => {
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 to-pink-600/0 group-hover:from-purple-600/10 group-hover:to-pink-600/10 transition-all duration-500 z-0"></div>
 
-              <div className="relative z-10 p-8 flex flex-col h-full">
+              <div className="relative z-10 p-6 sm:p-8 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-6">
                   <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400">
                     <FolderGit2 size={24} />
@@ -98,7 +98,7 @@ const Projects = () => {
                 <ul className="space-y-2 mb-8 flex-grow">
                   {project.points.map((point, idx) => (
                     <li key={idx} className="flex items-start text-xs text-zinc-400 leading-relaxed">
-                      <span className="text-sky-500 mr-2">▹</span>
+                      <span className="text-sky-500 mr-2 shrink-0">▹</span>
                       {point}
                     </li>
                   ))}

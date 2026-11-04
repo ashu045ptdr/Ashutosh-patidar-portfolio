@@ -30,3 +30,11 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+## Gemini chatbot configuration
+
+The chatbot calls `netlify/functions/chat.mjs`, which reads the Gemini API key on the server. In Netlify, set `GEMINI_API_KEY` as an environment variable available to Functions. Remove `VITE_GEMINI_API_KEY`; Vite-prefixed variables are embedded in public browser assets.
+
+For local development, set `GEMINI_API_KEY` in `.env.local` and run `npm run dev`. The Netlify Vite plugin provides the local Functions endpoint.
+
+If a Gemini key was previously configured as `VITE_GEMINI_API_KEY`, rotate it in Google AI Studio before using it as `GEMINI_API_KEY`, because the old value may have been included in a deployed browser bundle.

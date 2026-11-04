@@ -1,19 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || '');
-
-const SYSTEM_PROMPT = `You are an AI assistant for Ashutosh Patidar's portfolio website. 
-Ashutosh is a Software Developer with 2+ years of experience in Node.js, Express.js, NestJS, and React.js. 
-Be helpful, concise, and professional. Answer questions about his skills, experience, and projects. 
-If you don't know something, just say you don't have that specific information but emphasize his core skills.`;
 
 const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{role: 'user' | 'ai', text: string}[]>([
-    { role: 'ai', text: "Hi! I am Ashutosh's AI assistant. Ask me anything about his skills, experience, or projects!" }
+    { role: 'ai', text: "Hi! I'm Ashutosh's portfolio assistant. Ask me about his skills, experience, education, or projects like CopiaCom, Aivis, and SaferWatch Developer Portal." }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -36,38 +28,34 @@ const AIChatbot = () => {
     setIsLoading(true);
 
     try {
-      const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
-      
-      const chat = model.startChat({
-        history: [
-          { role: 'user', parts: [{ text: SYSTEM_PROMPT }] },
-          { role: 'model', parts: [{ text: "Understood. I will act as Ashutosh's AI assistant." }] },
-          ...messages.slice(1).map(m => ({
+      const response = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: userMessage,
+          history: messages.slice(1).map(m => ({
             role: m.role === 'user' ? 'user' : 'model',
-            parts: [{ text: m.text }]
-          }))
-        ]
+            text: m.text,
+          })),
+        }),
       });
 
-      const result = await chat.sendMessage(userMessage);
-      const response = await result.response;
-      const text = response.text();
-      
-      setMessages(prev => [...prev, { role: 'ai', text: text }]);
-    } catch (error: any) {
-      console.error('Gemini API Error:', error);
-      
-      // Fallback for Google's known AQ key authentication issue or other errors
-      const isAuthError = error.message?.includes('401') || error.message?.includes('authentication') || error.message?.includes('404');
-      
-      if (isAuthError) {
-        setMessages(prev => [...prev, { 
-          role: 'ai', 
-          text: `[Demo Mode]: I am Ashutosh's AI! (Note: Live API connection is currently paused due to Google API key updates, but Ashutosh is an expert in React, Node.js, and building scalable web apps!)` 
-        }]);
-      } else {
-        setMessages(prev => [...prev, { role: 'ai', text: "Sorry, I'm having trouble connecting to my brain right now. Please try again later." }]);
+      const data = await response.json() as { text?: unknown; error?: unknown };
+      if (!response.ok) {
+        throw new Error(typeof data.error === 'string' ? data.error : 'The AI assistant could not connect. Please try again later.');
       }
+      const responseText = data.text;
+      if (typeof responseText !== 'string' || !responseText.trim()) {
+        throw new Error('The AI assistant returned an empty response. Please try again.');
+      }
+
+      setMessages(prev => [...prev, { role: 'ai', text: responseText }]);
+    } catch (error: unknown) {
+      console.error('Chat function error:', error);
+      const text = error instanceof Error
+        ? error.message
+        : 'Sorry, the AI assistant could not connect. Please try again later.';
+      setMessages(prev => [...prev, { role: 'ai', text }]);
     } finally {
       setIsLoading(false);
     }
@@ -77,7 +65,8 @@ const AIChatbot = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 p-4 rounded-full bg-gradient-to-r from-sky-500 to-purple-500 text-white shadow-xl hover:scale-110 transition-transform z-50 flex items-center justify-center"
+        className="fixed right-6 p-4 rounded-full bg-gradient-to-r from-sky-500 to-purple-500 text-white shadow-xl hover:scale-110 transition-transform z-50 flex items-center justify-center"
+        style={{ bottom: 'calc(3.5rem + env(safe-area-inset-bottom))' }}
         aria-label="Open AI Assistant"
       >
         <MessageCircle size={28} />
@@ -90,8 +79,12 @@ const AIChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 w-80 md:w-96 bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col"
-            style={{ height: '500px', maxHeight: 'calc(100vh - 120px)' }}
+            className="fixed left-4 right-4 sm:left-auto sm:right-6 sm:w-80 md:w-96 bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col"
+            style={{
+              bottom: 'calc(8rem + env(safe-area-inset-bottom))',
+              height: 'min(500px, calc(100dvh - 9rem - env(safe-area-inset-bottom)))',
+              maxHeight: 'calc(100dvh - 9rem - env(safe-area-inset-bottom))',
+            }}
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-white/10 bg-zinc-800/50">
@@ -117,7 +110,7 @@ const AIChatbot = () => {
                     msg.role === 'user' 
                       ? 'bg-sky-500 text-white rounded-tr-sm' 
                       : 'bg-zinc-800/80 text-zinc-300 rounded-tl-sm border border-white/5'
-                  }`}>
+                  } whitespace-pre-wrap break-words`}>
                     {msg.text}
                   </div>
                 </div>
