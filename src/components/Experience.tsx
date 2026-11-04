@@ -18,7 +18,7 @@ const Experience = () => {
     {
       role: 'Junior Software Developer',
       company: 'Swapac Infotech Pvt. Ltd, Indore',
-      duration: 'Dec 2024 - Oct 2025',
+      duration: 'Aug 2024 - Oct 2025',
       responsibilities: [
         'Developed backend modules using Node.js and Express.js.',
         'Built REST APIs and handled server-side business logic.',
@@ -42,14 +42,14 @@ const Experience = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-400 inline-block">Experience Journey</h2>
         </div>
-        
+
         <div className="max-w-4xl mx-auto relative">
           <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-purple-500/30 to-transparent"></div>
-          
+
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div className={`relative flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`} key={index}>
-                
+
                 {/* Center dot for desktop */}
                 <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-zinc-900 border-4 border-sky-500 items-center justify-center z-10 shadow-[0_0_15px_rgba(14,165,233,0.5)]">
                   <div className="w-2 h-2 rounded-full bg-white"></div>
@@ -58,7 +58,7 @@ const Experience = () => {
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'} pl-12 relative`}>
                   {/* Left dot for mobile */}
                   <div className="md:hidden absolute left-3 top-4 w-4 h-4 rounded-full bg-sky-500 z-10 shadow-[0_0_10px_rgba(14,165,233,0.8)]"></div>
-                  
+
                   <div className="bg-zinc-800/50 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-blue-500/30 group-hover:border-blue-400/80 transition-all duration-500 relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4">
                       <span className="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
@@ -70,7 +70,7 @@ const Experience = () => {
                     <h4 className="text-sky-400 font-medium mb-6 flex items-center gap-2">
                       <Briefcase size={16} /> {exp.company}
                     </h4>
-                    
+
                     <ul className="space-y-3">
                       {exp.responsibilities.map((resp, idx) => (
                         <li key={idx} className="flex items-start text-zinc-300 text-sm leading-relaxed">

@@ -4,7 +4,7 @@ const Projects = () => {
   const projects = [
     {
       title: 'CopiaCom',
-      role: 'Software Developer (Backend)',
+      role: 'Software Developer',
       description: 'Pharmaceutical management system used to manage medicine formulations, specification data, and product approval workflows.',
       points: [
         'Designed and implemented scalable RESTful APIs using Node.js and Express.js.',
@@ -15,18 +15,18 @@ const Projects = () => {
     },
     {
       title: 'Aivis',
-      role: 'Software Developer (Backend)',
+      role: 'Software Developer',
       description: 'Pharmaceutical data export and management on remote system.',
       points: [
         'Developed secure data synchronization mechanisms to transfer pharmaceutical data.',
         'Built backend modules for managing medicine, formulation, and product information.',
         'Implemented data validation to maintain data integrity and security.'
       ],
-      tags: ['Node.js', 'Express.js', 'MongoDB']
+      tags: ['Node.js', 'Express.js', 'MongoDB', 'React.js']
     },
     {
       title: 'SaferWatch Developer Portal',
-      role: 'Software Developer (Backend)',
+      role: 'Software Developer',
       description: 'A U.S.-based security platform that enables developers to access and integrate security APIs.',
       points: [
         'Built APIs for API key lifecycle management (generation, regeneration, revocation).',
@@ -37,7 +37,7 @@ const Projects = () => {
     },
     {
       title: 'Naufumi',
-      role: 'Software Developer (Backend)',
+      role: 'Software Developer',
       description: 'Business listing and management platform with live location and geolocation services.',
       points: [
         'Built APIs for job posting and job listing, allowing businesses to publish vacancies.',
@@ -48,14 +48,14 @@ const Projects = () => {
     },
     {
       title: 'Labcompute',
-      role: 'Software Developer (Backend)',
+      role: 'Software Developer',
       description: 'Pharmaceutical management system to manage drug formulations records and calculations.',
       points: [
         'Developed backend functionalities for drug formulations records.',
         'Integrated MongoDB for secure data management.',
         'Implemented role-based access control to ensure data security.'
       ],
-      tags: ['Node.js', 'Express.js', 'MongoDB']
+      tags: ['Node.js', 'Express.js', 'MongoDB', 'React.js']
     }
   ];
 
@@ -65,13 +65,13 @@ const Projects = () => {
         <div className="mb-16">
           <h2 className="text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Featured Projects</h2>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div className="group relative bg-zinc-800/50 backdrop-blur-sm rounded-3xl border border-white/5 hover:border-purple-500/50 transition-all duration-500 overflow-hidden" key={index}>
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 to-pink-600/0 group-hover:from-purple-600/10 group-hover:to-pink-600/10 transition-all duration-500 z-0"></div>
-              
+
               <div className="relative z-10 p-8 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-6">
                   <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400">
@@ -82,19 +82,19 @@ const Projects = () => {
                     <a href="#" className="text-zinc-400 hover:text-sky-400 transition-colors" aria-label="External Link"><ExternalLink size={22} /></a>
                   </div>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
-                
+
                 <div className="mb-4">
                   <span className="inline-block bg-purple-600/20 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/20">
                     {project.role}
                   </span>
                 </div>
-                
+
                 <p className="text-zinc-300 text-sm leading-relaxed mb-6">
                   {project.description}
                 </p>
-                
+
                 <ul className="space-y-2 mb-8 flex-grow">
                   {project.points.map((point, idx) => (
                     <li key={idx} className="flex items-start text-xs text-zinc-400 leading-relaxed">
@@ -103,7 +103,7 @@ const Projects = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tags.map((tag, idx) => (
                     <span className="bg-gray-700/30 text-zinc-300 text-xs px-3 py-1.5 rounded-full border border-gray-600/50 group-hover:border-purple-500/50 transition-colors" key={idx}>
